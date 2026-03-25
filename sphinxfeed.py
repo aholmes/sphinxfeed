@@ -96,7 +96,7 @@ def create_feed_item(app, pagename, templatename, ctx, doctree):
     if app.config.feed_entry_permalink:
         if not (guid :=  metadata.get('guid')):
             guid = uuid5(NAMESPACE_URL, href)
-        item.guid(str(guid), permalink=True)
+        item.guid(f'urn:uuid:{guid}', permalink=True)
     # Entry ID option 2: Use the URL as the ID. Also sets item.guid (non-permalink) for RSS.
     else:
         item.id(href)

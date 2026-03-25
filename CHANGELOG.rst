@@ -41,3 +41,6 @@ The sphinxfeed changelog
   otherwise, a new one will be generated based on the entry URL.
   Defaults to ``False``, in which case the entry URL will be used as a
   non-permalink ID.  Applies to both Atom and RSS feeds.
+
+- 20260325: Add `urn:uuid:` prefix to permalink GUIDs so they validate as a full URL.
+
