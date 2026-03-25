@@ -49,6 +49,8 @@ def create_feed_container(app):
     feed.link(href=app.config.feed_base_url)
     if app.config.feed_use_atom:
         feed.id(app.config.feed_base_url)
+        base_url = app.config.feed_base_url.rstrip('/')
+        feed.link(href=base_url + '/' + app.config.feed_filename, rel='self')
     feed.author({'name': app.config.feed_author})
     feed.description(app.config.feed_description)
 
@@ -85,7 +87,8 @@ def create_feed_item(app, pagename, templatename, ctx, doctree):
 
     item = FeedEntry()
     item.title(ctx.get('title'))
-    href = app.config.feed_base_url + '/' + ctx['current_page_name']
+    base_url = app.config.feed_base_url.rstrip('/')
+    href = base_url + '/' + ctx['current_page_name']
     if not app.config.use_dirhtml:
         href += ctx['file_suffix']
     item.link(href=href)
@@ -118,7 +121,7 @@ def create_feed_item(app, pagename, templatename, ctx, doctree):
     env.feed_items[pagename] = item
 
     #Additionally, we might like to provide our templates with a way to link to the rss output file
-    ctx['rss_link'] = app.config.feed_base_url + '/' + app.config.feed_filename
+    ctx['rss_link'] = base_url + '/' + app.config.feed_filename
 
 
 def emit_feed(app, exc):

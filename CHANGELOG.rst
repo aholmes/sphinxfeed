@@ -44,3 +44,4 @@ The sphinxfeed changelog
 
 - 20260325: Add `urn:uuid:` prefix to permalink GUIDs so they validate as a full URL.
 
+- 20260325: Handle trailing slashes in feed_base_url

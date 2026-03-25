@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-    <id>http://news.example.com</id>
+    <id>http://news.example.com/</id>
     <title>First sphinxfeed tester</title>
     <updated>2024-07-21T18:58:02.430522+00:00</updated>
     <author>
         <name>Joe Dow</name>
     </author>
-    <link href="http://news.example.com"/>
+    <link href="http://news.example.com/"/>
     <generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator>
     <rights>2018 Joe Doe</rights>
     <subtitle>Joe's blog</subtitle>
