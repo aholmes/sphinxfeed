@@ -16,5 +16,4 @@ feed_title = "Joe's blog"
 feed_field_name = 'date'
 feed_description = "Joe's blog"
 feed_filename = 'rss.xml'
-feed_entry_permalink = True
 feed_use_atom = False

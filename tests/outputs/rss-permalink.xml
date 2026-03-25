@@ -13,6 +13,7 @@
         <item>
             <title>Second day</title>
             <link>http://news.example.com/second.html</link>
+            <guid isPermaLink="true">urn:uuid:65a78116-5715-4f78-bbd4-384a018c99f9</guid>
             <description>
             &lt;section id="second-day"&gt;
             &lt;h1&gt;Second day&lt;a class="headerlink" href="#second-day" title="Link to this heading"&gt;¶&lt;/a&gt;&lt;/h1&gt;
@@ -23,12 +24,12 @@
             Terese teisipäev,&lt;/p&gt;
             &lt;/section&gt;
             </description>
-            <guid isPermaLink="false">http://news.example.com/second.html</guid>
             <pubDate>Mon, 12 Mar 2018 23:30:00 +0000</pubDate>
         </item>
         <item>
             <title>First day</title>
             <link>http://news.example.com/first.html</link>
+            <guid isPermaLink="true">urn:uuid:f21329fa-c178-5550-9bbd-8cd2f591844a</guid>
             <description>
             &lt;section id="first-day"&gt;
             &lt;h1&gt;First day&lt;a class="headerlink" href="#first-day" title="Link to this heading"&gt;¶&lt;/a&gt;&lt;/h1&gt;
@@ -38,7 +39,6 @@
             Ikka Emma esmaspäev, …&lt;/p&gt;
             &lt;/section&gt;
             </description>
-            <guid isPermaLink="false">http://news.example.com/first.html</guid>
             <pubDate>Sun, 11 Mar 2018 00:00:00 +0000</pubDate>
         </item>
     </channel>

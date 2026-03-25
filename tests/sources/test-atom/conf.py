@@ -18,4 +18,3 @@ feed_field_name = 'date'
 feed_description = "Joe's blog"
 feed_filename = 'atom.xml'
 feed_use_atom = True
-feed_entry_permalink = True

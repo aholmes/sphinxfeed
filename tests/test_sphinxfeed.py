@@ -51,14 +51,19 @@ ATOM_ITEM_ATTRIBUTES = [
 ]
 
 
+@pytest.mark.parametrize(
+    "permalink,expected_file",
+    [(False, "rss.xml"), (True, "rss-permalink.xml")],
+)
 @pytest.mark.sphinx("html", testroot="rss")
 @patch("sphinxfeed.tzlocal", return_value=UTC)
-def test_build_rss(mock_tzlocal, app: SphinxTestApp, status: StringIO):
+def test_build_rss(mock_tzlocal, permalink: bool, expected_file: str, app: SphinxTestApp, status: StringIO):
+    app.config.feed_entry_permalink = permalink
     app.build(force_all=True)
     assert "build succeeded" in status.getvalue()
 
     build_dir = Path(app.srcdir) / "_build" / "html"
-    _compare_rss_feeds((build_dir / "rss.xml"), (OUTPUT_DIR / "rss.xml"))
+    _compare_rss_feeds((build_dir / "rss.xml"), (OUTPUT_DIR / expected_file))
 
 
 def _compare_rss_feeds(file_1: Path, file_2: Path):
@@ -79,14 +84,19 @@ def _compare_rss_feeds(file_1: Path, file_2: Path):
             _compare_attrs(attr, item_1, item_2)
 
 
+@pytest.mark.parametrize(
+    "permalink,expected_file",
+    [(False, "atom.xml"), (True, "atom-permalink.xml")],
+)
 @pytest.mark.sphinx("html", testroot="atom")
 @patch("sphinxfeed.tzlocal", return_value=UTC)
-def test_build_atom(mock_tzlocal, app: SphinxTestApp, status: StringIO):
+def test_build_atom(mock_tzlocal, permalink: bool, expected_file: str, app: SphinxTestApp, status: StringIO):
+    app.config.feed_entry_permalink = permalink
     app.build(force_all=True)
     assert "build succeeded" in status.getvalue()
 
     build_dir = Path(app.srcdir) / "_build" / "html"
-    _compare_atom_feeds((build_dir / "atom.xml"), (OUTPUT_DIR / "atom.xml"))
+    _compare_atom_feeds((build_dir / "atom.xml"), (OUTPUT_DIR / expected_file))
 
 
 def _compare_atom_feeds(file_1: Path, file_2: Path):
