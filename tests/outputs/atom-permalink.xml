@@ -11,7 +11,7 @@
     <rights>2018 Joe Doe</rights>
     <subtitle>Joe's blog</subtitle>
     <entry>
-        <id>http://news.example.com/second</id>
+        <id>urn:uuid:ffc3948d-d699-5ad1-89b9-424f6c9a34aa</id>
         <title>Second day</title>
         <updated>2024-07-21T18:58:02.552860+00:00</updated>
         <author>
@@ -31,7 +31,7 @@
         <published>2018-03-12T23:30:00+00:00</published>
     </entry>
     <entry>
-        <id>http://news.example.com/first</id>
+        <id>urn:uuid:b76ad247-511f-5384-9d51-1a20a02ffd46</id>
         <title>First day</title>
         <updated>2024-07-21T18:58:02.488103+00:00</updated>
         <content>
