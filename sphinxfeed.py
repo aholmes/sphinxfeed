@@ -85,6 +85,15 @@ def create_feed_item(app, pagename, templatename, ctx, doctree):
     if not ctx.get('body') or not ctx.get('title'):
         return
 
+    try:
+        source_path = env.doc2path(pagename)
+        full_path = os.path.join(env.srcdir, source_path)
+        mtime = os.path.getmtime(full_path)
+        updated_date = datetime.fromtimestamp(mtime)
+        updated_date = updated_date.replace(tzinfo=tzlocal())
+    except:
+        updated_date = pubdate
+
     item = FeedEntry()
     item.title(ctx.get('title'))
     base_url = app.config.feed_base_url.rstrip('/')
@@ -94,6 +103,7 @@ def create_feed_item(app, pagename, templatename, ctx, doctree):
     item.link(href=href)
     item.description(ctx.get('body'))
     item.published(pubdate)
+    item.updated(updated_date)
 
     # Entry ID option 1: Use a GUID as a permalink. Also sets item.id for Atom.
     if app.config.feed_entry_permalink:
